@@ -1,0 +1,70 @@
+﻿div.tablebox{
+	clear:both;
+	margin:10px auto;
+}
+
+.listView .formView{
+	max-width:790px;
+}
+
+.listView th {  
+	font: bold 12px 微软雅黑;  
+	color: #4f6b72;  
+	border: 1px solid #97c8ff;  
+	letter-spacing: 2px;  
+	text-transform: uppercase;  
+	text-align: left;  
+	padding: 6px 11px;  
+	background: #b9e6fd  no-repeat;  
+}  
+
+.listView tr {  
+	background-color:#F8F8F8;  
+	cursor:hand;  
+}  
+
+.listView td {  
+	border: 1px solid #97c8ff;  
+	font-size:12px;  
+	color: #4f6b72;  
+	padding: 6px 11px;     
+	border-bottom: 1px solid #95bce2;     
+}  
+
+.listView tr.over td {     
+	background: #FFCB97;  
+} 
+ 
+.formView tr {  
+	background-color: #cceeff;   
+}
+
+.formView td {  
+	border: 1px solid #97c8ff;  
+	font-size:12px;  
+	color: #4f6b72;
+	width:200px;
+	padding: 6px 11px;     
+	border-bottom: 1px solid #95bce2;     
+} 
+
+td.tdhead{
+	font: bold 12px 微软雅黑;
+	text-align:right;
+	color: #4f6b72;  
+	border: 1px solid #97c8ff;  
+	letter-spacing: 2px;  
+	text-transform: uppercase;   
+	padding: 6px 11px;
+	width:120px;
+	background: #b9e6fd  no-repeat; 
+}
+
+.formView input{
+	font-size:12px;
+	width:auto;
+	height:auto;
+	margin:0 0;
+	background-image:none;
+	background-color: #F8F8F8;
+}

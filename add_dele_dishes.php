@@ -4,7 +4,7 @@
 
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>菜脑壳无线点餐后台管理系统</title>
+<title>菜脑壳无线点餐后台管理系统1</title>
 </head>
 <?php
 $tablename=$_GET["tablename"];

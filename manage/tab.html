@@ -1,0 +1,328 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>菜脑壳点餐后台管理系统 </title>
+<style type="text/css">
+</style>
+
+<script>
+var  highlightcolor='#eafcd5';
+//姝ゅclickcolor鍙兘鐢╳in绯荤粺棰滆壊浠ｇ爜鎵嶈兘鎴愬姛,濡傛灉鐢?xxxxxx鐨勪唬鐮佸氨涓嶈,杩樻病鎼炴竻妤氫负浠€涔?(
+var  clickcolor='#51b2f6';
+function  changeto(){
+source=event.srcElement;
+if  (source.tagName=="TR"||source.tagName=="TABLE")
+return;
+while(source.tagName!="TD")
+source=source.parentElement;
+source=source.parentElement;
+cs  =  source.children;
+//alert(cs.length);
+if  (cs[1].style.backgroundColor!=highlightcolor&&source.id!="nc"&&cs[1].style.backgroundColor!=clickcolor)
+for(i=0;i<cs.length;i++){
+	cs[i].style.backgroundColor=highlightcolor;
+}
+}
+
+function  changeback(){
+if  (event.fromElement.contains(event.toElement)||source.contains(event.toElement)||source.id=="nc")
+return
+if  (event.toElement!=source&&cs[1].style.backgroundColor!=clickcolor)
+//source.style.backgroundColor=originalcolor
+for(i=0;i<cs.length;i++){
+	cs[i].style.backgroundColor="";
+}
+}
+
+function  clickto(){
+source=event.srcElement;
+if  (source.tagName=="TR"||source.tagName=="TABLE")
+return;
+while(source.tagName!="TD")
+source=source.parentElement;
+source=source.parentElement;
+cs  =  source.children;
+//alert(cs.length);
+if  (cs[1].style.backgroundColor!=clickcolor&&source.id!="nc")
+for(i=0;i<cs.length;i++){
+	cs[i].style.backgroundColor=clickcolor;
+}
+else
+for(i=0;i<cs.length;i++){
+	cs[i].style.backgroundColor="";
+}
+}
+</script>
+<style>
+body
+{
+	background-image:url(images/main_40.gif);background-repeat: repeat;
+
+}
+</style>
+</head>
+
+<body>
+<!--
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="15" height="30"><img src="images/tab_03.gif" width="15" height="30" /></td>
+        <td width="1101" background="images/tab_05.gif"><img src="images/311.gif" width="16" height="16" /> <span class="STYLE4">鏈嶅姟鍣ㄨ繘绋嬮厤缃垪琛?/span></td>
+        <td width="281" background="images/tab_05.gif"><table border="0" align="right" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="60"><table width="87%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="STYLE1"><div align="center">
+                        <input type="checkbox" name="checkbox62" value="checkbox" />
+                    </div></td>
+                    <td class="STYLE1"><div align="center">鍏ㄩ€?/div></td>
+                  </tr>
+              </table></td>
+              <td width="60"><table width="90%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="STYLE1"><div align="center"><img src="images/001.gif" width="14" height="14" /></div></td>
+                    <td class="STYLE1"><div align="center">鏂板</div></td>
+                  </tr>
+              </table></td>
+              <td width="60"><table width="90%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="STYLE1"><div align="center"><img src="images/114.gif" width="14" height="14" /></div></td>
+                    <td class="STYLE1"><div align="center">淇敼</div></td>
+                  </tr>
+              </table></td>
+              <td width="52"><table width="88%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="STYLE1"><div align="center"><img src="images/083.gif" width="14" height="14" /></div></td>
+                    <td class="STYLE1"><div align="center">鍒犻櫎</div></td>
+                  </tr>
+              </table></td>
+            </tr>
+        </table></td>
+        <td width="14"><img src="images/tab_07.gif" width="14" height="30" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="9" background="images/tab_12.gif">&nbsp;</td>
+        <td bgcolor="#f3ffe3"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98" onmouseover="changeto()"  onmouseout="changeback()">
+          <tr>
+            <td width="6%" height="26" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2 STYLE1">閫夋嫨</div></td>
+            <td width="8%" height="18" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2 STYLE1">搴忓彿</div></td>
+            <td width="24%" height="18" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2 STYLE1">杩愯鏈哄櫒ip鍦板潃</div></td>
+            <td width="10%" height="18" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2 STYLE1">鏈哄櫒鍚?/div></td>
+            <td width="14%" height="18" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2 STYLE1">鑺傜偣绫诲瀷</div></td>
+            <td width="24%" height="18" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/div></td>
+            <td width="7%" height="18" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2">缂栬緫</div></td>
+            <td width="7%" height="18" background="images/tab_14.gif" class="STYLE1"><div align="center" class="STYLE2">鍒犻櫎</div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" ><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><img src="images/037.gif" width="9" height="9" /><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox2" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox3" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox4" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox5" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox6" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox7" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox8" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox9" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox10" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox11" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox12" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox13" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+          <tr>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
+              <input name="checkbox14" type="checkbox" class="STYLE2" value="checkbox" />
+            </div></td>
+            <td height="18" bgcolor="#FFFFFF" class="STYLE2"><div align="center" class="STYLE2 STYLE1">A0012</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">192.168.0.124</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">wtz_fh</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1">DBserver</div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><a href="#">鏈嶅姟鍣ㄨ繘绋嬮厤缃?/a></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">缂栬緫</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">鍒犻櫎</a><span class="STYLE1">]</span></div></td>
+          </tr>
+        </table></td>
+        <td width="9" background="images/tab_16.gif">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="29"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="15" height="29"><img src="images/tab_20.gif" width="15" height="29" /></td>
+        <td background="images/tab_21.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="25%" height="29" nowrap="nowrap"><span class="STYLE1">鍏?20鏉＄邯褰曪紝褰撳墠绗?/10椤碉紝姣忛〉10鏉＄邯褰?/span></td>
+            <td width="75%" valign="top" class="STYLE1"><div align="right">
+              <table width="352" height="20" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="62" height="22" valign="middle"><div align="right"><img src="images/first.gif" width="37" height="15" /></div></td>
+                  <td width="50" height="22" valign="middle"><div align="right"><img src="images/back.gif" width="43" height="15" /></div></td>
+                  <td width="54" height="22" valign="middle"><div align="right"><img src="images/next.gif" width="43" height="15" /></div></td>
+                  <td width="49" height="22" valign="middle"><div align="right"><img src="images/last.gif" width="37" height="15" /></div></td>
+                  <td width="59" height="22" valign="middle"><div align="right">杞埌绗?/div></td>
+                  <td width="25" height="22" valign="middle"><span class="STYLE7">
+                    <input name="textfield" type="text" class="STYLE1" style="height:10px; width:25px;" size="5" />
+                  </span></td>
+                  <td width="23" height="22" valign="middle">椤?/td>
+                  <td width="30" height="22" valign="middle"><img src="images/go.gif" width="37" height="15" /></td>
+                </tr>
+              </table>
+            </div></td>
+          </tr>
+        </table></td>
+        <td width="14"><img src="images/tab_22.gif" width="14" height="29" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+-->
+欢迎来到菜脑壳点餐后台管理系统！
+</body>
+</html>

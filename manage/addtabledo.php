@@ -6,7 +6,7 @@
 
 <?php
 include('quote.php');
-$db=openSQLite3();
+$db=openSQLite3Table_info();
 if($db)
 {
 $tablenum=$_POST["tablenum"];

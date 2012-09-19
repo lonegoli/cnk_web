@@ -7,7 +7,7 @@
 include('quote.php');
 $id=$_GET["id"];
 $sql=sprintf("delete from table_info where id=%d",$id);
-$db=openSQLite3();
+$db=openSQLite3Table_info();
 if($db)
 {
 $rs=$db->exec($sql);

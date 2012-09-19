@@ -93,7 +93,7 @@ label{
           
             -->
                 <p align="center">
-                <label style=" color:#F00" name="a1" id="al"></label></br>
+                <label style=" color:#F00" name="a1" id="al"></label><br/>
                  <input name="submit" type="submit" class="button" id="btn_login" style="width:60px;background:#efefef;height:25px;line-height:25px;font-size:12px;" value="添加"  onclick="return submitto()"/>
                   </p>
       </form>

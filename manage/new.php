@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
 <meta name="MobileOptimized" content="320" />
 <link rel="stylesheet" href="css/style.css" type="text/css">
 
@@ -23,7 +23,6 @@ createXMLHttpRequest();
 var  va=document.getElementById("name").value;
 var  va1=document.getElementById("tablename").value;
 var postStr="name="+va+"&tablename="+va1;
-
 xmlHttp.open("post", "dishchk.php");
 xmlHttp.setRequestHeader("cache-control","no-cache"); 
 xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -75,6 +74,7 @@ if (4==xmlHttp.readyState){
 		var  va=document.getElementById("price").value;
 		if(parseFloat(va))
 		{
+			document.getElementById("priceid1").innerHTML="";
 			down2="true";
 		}
 		else
@@ -133,12 +133,12 @@ messageCount.innerText = document.addform.remark.value.length;//如果文本框�
 $tablename=$_GET['tablename'];
 ?>
 <br/>
-<h3 class="title">&nbsp;菜脑壳添加菜品</h3>
+<h3 class="title">&nbsp;菜品添加</h3>
 <form class="td2" action="adddishes.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="tablename" id="tablename" value=<?php echo $tablename?> />
-名称: <input type="text" name="name" id="name" onblur="chkDishName(this)" /><label style="color:#F00" id="dishid1"></label>
+名称: <input type="text" name="name" id="name" onBlur="chkDishName(this)" /><label style="color:#F00" id="dishid1"></label>
 <br />
-价格: <input type="text" name="price" id="price" onblur="chkDishPrice(this)"/><label style="color:#F00" id="priceid1"></label>
+价格: <input type="text" name="price" id="price" onBlur="chkDishPrice(this)"/><label style="color:#F00" id="priceid1"></label>
 <br />
 状态: <input type="text" name="status" id="status" value="1"/>
 <br />
@@ -148,10 +148,21 @@ $tablename=$_GET['tablename'];
 <br/>
 描述: <textarea name="remark" id="remark" rows="5" cols="20" onKeyUp="textLimitCheck(this, messageCount1,36)"></textarea>
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限36个字符已输入<FONT color=#cc0000><SPAN id=messageCount1>0</SPAN></FONT> 个字</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限36个字符（已输入<FONT color=#cc0000><SPAN id=messageCount1>0</SPAN></FONT> 个字）</span>
 <br/>
 <label style="color:#F00" name="a1" id="a1"></label>
 <input type="submit" name="submit" id="submit" onClick="return chkdish(this)"  value="添加"/>
+</form>
+<hr />
+<h3>&nbsp;菜品顺序修改</h3>
+<form action="orderBy.php"  method="post">
+<input type="hidden" name="tablename" id="tablename"  value=<?php echo $tablename?> />
+菜品ID:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  name="num1">
+<br />
+菜品顺序:<input type="text"  name="num2">
+<!--<input type="text" name="num3">-->
+<br/>
+<input type="submit" value="转换">
 </form>
 <a href="<?php echo "showdishes.php?tablename=$tablename" ?>" target="showframe">刷新</a>
 </body>

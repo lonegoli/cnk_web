@@ -1,12 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+td{
+	border:1px solid #333333;
+}
+</style>
 </head>
 <body>
 <?php
 // $db = new SQLite3 ("test.db3");
 include('quote.php');
-$db=openSQLite3();
+$db=openSQLite3Table_info();
 $tablename="table_info";
  //查询所要的记录集
 $txt=sprintf("select * from %s",$tablename);
@@ -39,7 +44,7 @@ $colNum = $rs->numColumns();
 		 }
 	 }
  }
- echo '<td>操作</td></tr>';
+ echo '<td>操作</td><td>操作</td></tr>';
  //循环输出记录
  while ($row = $rs->fetchArray())
  { 

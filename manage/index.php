@@ -58,7 +58,8 @@ if($row!=null)
 		{
 	   $db->close();
 	   $db=null;
-	   header("location:view.html");
+	   $_SESSION['quanxian']="yes";
+	   header("location:view.php");
 	   ob_end_flush();
 		}
 	}

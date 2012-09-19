@@ -1,8 +1,3 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
 <?php
 include('opendb.php');
 $db=openSQLite3();
@@ -12,21 +7,18 @@ $tablename=$_POST["tablename"];
 //$tablename="mytest";
 $pan1="false";
 $pan2="true";
-$db=new SQLite3("test.db3");
+//$db=new SQLite3("test.db3");
 $txt=sprintf("select * from %s where name like '%s'",$tablename,$dishname);
 $rs=$db->query($txt);
 if($rs->fetchArray())
 {
-	echo $pan1;}
+	echo $pan1;
+}
 else
 {
 	echo $pan2;
 }
 $db->close();
 $rs = null;
- $db = null;
-
-
+$db = null;
 ?>
-</body>
-</html>

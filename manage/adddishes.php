@@ -58,7 +58,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 	  {
 		 $db->exec($sql1); 
 		 $num=$db->lastInsertRowID ();
-		 $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\")",$tablename,$num,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
+		 $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\",1)",$tablename,$num,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
 		// echo $sql;
 		 $db->exec($sql);
 	  }
@@ -68,7 +68,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
 		  $txt1=sprintf("update total_menu set usenum=usenum+1 where name=\"%s\"",$_POST['name']);
 		  $db->exec($txt1);
 		  
-		  $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\")",$tablename,$idnum,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
+		  $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\",1)",$tablename,$idnum,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
 		  $db->exec($sql);
 	  }
 	  $db->exec("update version set version=version+1 where id=1");
@@ -90,7 +90,7 @@ else
 	  {
 		 $db->exec($sql1); 
 		 $num=$db->lastInsertRowID ();
-		 $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\")",$tablename,$num,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
+		 $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\",1)",$tablename,$num,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
 		// echo $sql;
 		 $db->exec($sql);
 	  }
@@ -100,13 +100,13 @@ else
 		  $txt1=sprintf("update total_menu set usenum=usenum+1 where name=\"%s\"",$_POST['name']);
 		  $db->exec($txt1);
 		  
-		  $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\")",$tablename,$idnum,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
+		  $sql=sprintf("insert into %s values ( %d,\"%s\",%d,\"%s\",\"%s\",\"null\",%d,\"null\",1)",$tablename,$idnum,$_POST['name'],intval($_POST['price']),$_POST['remark'],$url,intval($_POST['status']));
 		  $db->exec($sql);
 	  }
 	  $db->exec("update version set version=version+1 where id=1");
 	  echo "添加成功";
   }
-$rs->finalize();
+//$rs->finalize();
 $db->close();
 $rs=null;
 $db=null;

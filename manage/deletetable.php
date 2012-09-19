@@ -14,8 +14,7 @@ $db->exec($txt);
 $db->exec($txt1);
 $db->exec("update version set version=version+1 where id=1");
 $db->close();
- $db = null;
-
+$db = null;
 ?>
 <a href="showtable.php" target="showframe"">删除成功，返回</a>
 </body>

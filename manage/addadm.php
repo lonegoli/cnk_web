@@ -178,21 +178,21 @@ if (4==xmlHttp.readyState){
     <div id="login">
         <h1>添加用户</h1>
         <form action="loginuser.php" method="post" charset="UTF-8" id="frmlogin" name="frmlogin">
-          <label>用户名:&nbsp;&nbsp;&nbsp;
-          <input name="username" type="text" id="username" size="22" maxlength="10" style="width:120px; height:20px;"  onBlur="chkUserName(this)" />
+          <label><span style="margin-right:12px;">用户名:</span>
+          <input name="username" type="text" id="username"  style="width:120px; height:20px;"  onBlur="chkUserName(this)" />
           </label><label id="tip1"></label><label style=" color:#090" id="tip2"></label>
                 <p>
-                  <label>密　码:&nbsp;&nbsp;&nbsp;
-                  <input name="pwd" type="password" id="pwd" size="24" maxlength="16" />
+                  <label><span style="margin-right:24px;">密码:</span>
+                  <input name="pwd" type="password" id="pwd" style="width:120px; height:20px;" />
                   </label>
           </p>
           <p>
-                  <label>确认密码:
-                  <input name="pwd1" type="password" id="pwd1" size="24" maxlength="16" onBlur="chkPassword(this)" />
+                  <label><span>确认密码:</span>
+                  <input name="pwd1" type="password" id="pwd1" style="width:120px; height:20px;" onBlur="chkPassword(this)" />
                   </label><label id="ps1"></label><label style=" color:#090" id="ps2"></label>
           </p>
           <p>
-          <label>权限设置:
+          <label><span>权限设置:</span>
           <select name="permission" id="permission" size="1">
           <option value='0' selected="true">管理者</option>
           <option value='1'>普通员工</option>

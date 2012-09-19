@@ -9,7 +9,7 @@ $id=$_POST['id'];
 $tablenum=$_POST['tablenum'];
 $status=$_POST['status'];
 $sql=sprintf("update table_info set tablenum=%d,status=%d where id=%d",$tablenum,$status,$id);
-$db=openSQLite3();
+$db=openSQLite3Table_info();
 if($db)
 {
 	$rs=$db->exec($sql);

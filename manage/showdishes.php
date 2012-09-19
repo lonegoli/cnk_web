@@ -1,6 +1,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+td{
+	border:1px solid #333333;
+	max-width:100px;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+    word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+</style>
 </head>
 <body>
 <?php
@@ -9,7 +17,7 @@ include('quote.php');
 $db=openSQLite3();
 $tablename=$_GET["tablename"]; 
  //查询所要的记录集
-$txt=sprintf("select * from %s",$tablename);
+$txt=sprintf("select * from %s order by dishorder",$tablename);
 $rs = $db->query($txt);
 if(!$rs)
 {
@@ -20,16 +28,17 @@ $colNum = $rs->numColumns();
   
  //循环输字段名
  echo '<table style="border:1px solid #333333;border-collapse:collapse;"><tr>';
- echo '<td style="border:1px solid #333333;">操作</td>';
- for ($i = 0; $i < $colNum; $i++)
+ echo '<td>操作</td>';
+ for ($i = 0; $i < $colNum-2; $i++)//减二是为了不显示最后两项
  {
-     echo '<td style="border:1px solid #333333;">' . $rs->columnName($i).'</td>';
+	
+     echo '<td>' . $rs->columnName($i).'</td>';
  }
  echo '<td>操作</td></tr>';
  //循环输出记录
  while ($row = $rs->fetchArray())
  { 
-     for ($i = 0; $i < $colNum; $i++)
+     for ($i = 0; $i < $colNum-2; $i++)
      {
 		 if($i==0)
 		 {
@@ -41,6 +50,7 @@ $colNum = $rs->numColumns();
      
      //print_r ($row);
  } 
+ echo "</table>";
  //关闭记录集
  $rs->finalize();
  //关闭数据库

@@ -1,7 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style>
+body{
+	width:800px;
+}
 td{
 	border:1px solid #333333;
 }
@@ -30,13 +34,13 @@ $colNum = $rs->numColumns();
  {
 	 if($rs->columnName($i)=="tablenum")
 	 {
-		 echo '<td style="border:1px solid #333333;">桌号</td>';
+		 echo '<td>桌号</td>';
 	 }
 	 else
 	 {
 		 if($rs->columnName($i)=="status")
 		 {
-			 echo '<td style="border:1px solid #333333;">餐桌状态</td>';
+			 echo '<td>餐桌状态</td>';
 		 }
 		 else
 		 {
@@ -53,9 +57,10 @@ $colNum = $rs->numColumns();
      {
          echo '<td style="border:1px solid #333333;">' . $row[$i] . '</td>' ; 
      }
-     echo "<td style=\"border:1px solid #333333;\"><a href=\"deletetable_info.php?id=$row[0]\" target=\"admidow\" onclick=\"return confirm('确定要删除?')\">删除</a></td>
-	 <td style=\"border:1px solid #333333;\"><a href=\"updatetable_info.php?id=$row[0]&tablenum=$row[1]&status=$row[2]\" target=\"admidow\">修改</a></td></tr>";
+     echo "<td><a href=\"deletetable_info.php?id=$row[0]\" target=\"admidow\" onclick=\"return confirm('确定要删除?')\">删除</a></td>
+	 <td><a href=\"updatetable_info.php?id=$row[0]&tablenum=$row[1]&status=$row[2]\" target=\"admidow\">修改</a></td></tr>";
  } 
+echo'</table>';
  $rs->finalize();
  $db->close();
  $rs = null;

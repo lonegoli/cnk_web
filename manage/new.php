@@ -164,6 +164,6 @@ $tablename=$_GET['tablename'];
 <br/>
 <input type="submit" value="转换">
 </form>
-<a href="<?php echo "showdishes.php?tablename=$tablename" ?>" target="showframe">刷新</a>
+<a href="<?php echo "showdishes.php?tablename=$tablename" ?>" target="showframe"><input type="button" value="刷新"></a>
 </body>
 </html>

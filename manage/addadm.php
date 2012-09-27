@@ -194,14 +194,17 @@ if (4==xmlHttp.readyState){
           <p>
           <label><span>权限设置:</span>
           <select name="permission" id="permission" size="1">
-          <option value='0' selected="true">管理者</option>
-          <option value='1'>普通员工</option>
+          <option value='0' selected="true">超级管理者</option>
+          <option value='3'>一级管理员</option>
+          <option value='4'>二级管理员</option>
+          <option value='5'>三级管理员</option>
+          <option value='8'>普通员工</option>
           </select>
           </label>
           </p>
                 <p align="center">
                 <label style=" color:#F00" id="al"></label></br>
-                 <input name="submit" type="submit" class="button" id="btn_login" style="width:60px;background:#efefef;height:25px;line-height:25px;font-size:12px;" value="注册"  onclick="return submitto()"/>
+                 <input name="submit" type="submit" class="button" id="btn_login" style="width:60px;background:#efefef;height:25px;line-height:25px;font-size:12px;" value="添加"  onclick="return submitto()"/>
                   <input name="submit2" type="reset" class="button" style="width:60px;background:#EFEFEF;height:25px;line-height:25px;font-size:12px;" value="重置" />
                 </p>
       </form>

@@ -15,6 +15,7 @@ if($pwd1==$pwd)
 //$db=new SQLite3("test.db3");
 $txt=sprintf("insert into administrator values(null,\"%s\",\"%s\",%d)",$username,$pwd1,$permission);
 $db->exec($txt) or die(ERR_INSERT_DB);
+$db->exec("update version set version=version+1 where id=1") or die(ERR_UPDATE_DB); 
 echo "</br></br><a href=\"Administrator.html\" target=\"I1\" >添加成功，返回</a>";
 }
 $db->close();

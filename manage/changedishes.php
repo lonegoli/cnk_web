@@ -1,6 +1,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+td{
+	padding-left:20px;
+}
+thead tr td{
+	border-bottom:1px solid #333333;
+}
+</style>
 </head>
 <body>
 <?php
@@ -19,10 +27,12 @@ if(!$rs)
 $colNum = $rs->numColumns(); 
 ?>
  <table>
+ <thead>
  <tr>
- <td>类别名（表名）</td>
+ <td>类别</td>
  <td> 操作</td>
  </tr>
+ </thead>
  <?php
  while ($row = $rs->fetchArray())
  { 

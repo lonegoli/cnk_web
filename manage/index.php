@@ -11,6 +11,20 @@ if(isset($_POST["sub"]))
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script language="javascript" >
+
+
+function showAuto()
+{
+	setTimeout("delePass()",100);
+	
+}
+function delePass()
+{
+	$("#password").val("");
+}
+</script>
 <title>菜脑壳无线点餐后台管理系统</title>
 <style type="text/css">
 <!--
@@ -29,7 +43,7 @@ body {
 -->
 </style>
 </head>
-<body>
+<body onLoad="showAuto()">
 <?php
 
 if(isset($_POST["sub"]))

@@ -1,4 +1,4 @@
-var next1="true";
+var next1="false";
 function createXMLHttpRequest(){
 if(window.XMLHttpRequest){//非IE浏览器
 			xmlHttp=new XMLHttpRequest();
@@ -40,7 +40,7 @@ if (4==xmlHttp.readyState){
 					{
 						document.getElementById("tip1").innerHTML="";
 						document.getElementById("tip2").innerHTML="";
-						document.getElementById("tip2").innerHTML="恭喜！该座位号可添加！！";
+						document.getElementById("tip2").innerHTML="恭喜！该座位号可添加！！<p align='center'>请再次点击添加按钮</p>";
 						next1="true";				
 					}
                 }
@@ -60,9 +60,19 @@ if (4==xmlHttp.readyState){
 			document.getElementById("tip1").innerHTML="请输入座位号！";
             obj.focus();
         }else{
+			
+			if(parseInt(obj.value)<1)
+			{
+			document.getElementById("tip1").innerHTML="座位号不能小于1！";
+			obj.value="";
+            
+			}
+			else
+			{
 			document.getElementById("tip1").innerHTML="";
             //调用Ajax函数,向服务器端发送查询
             Ajax(obj.value);
+			}
         }           
     }
 	/*function chkStatus(obj){
@@ -92,8 +102,8 @@ if (4==xmlHttp.readyState){
 		}
 		else
 		{
-			document.getElementById("al").innerHTML="";
-			document.getElementById("al").innerHTML="您输入的信息不正确，请检查或重新输入！！";
+			//document.getElementById("al").innerHTML="";
+			//document.getElementById("al").innerHTML="您输入的信息不正确，请检查或重新输入！！";
 			return false;
 		}
 	}

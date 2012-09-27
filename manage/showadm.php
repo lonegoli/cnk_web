@@ -33,7 +33,7 @@ td{
  //$db = new SQLite3 ("test.db3");
 include('quote.php');
 $tablename="administrator";
-$txt=sprintf("select * from %s",$tablename);
+$txt=sprintf("select * from %s order by permission",$tablename);
 $db=openSQLite3() or die(ERR_CONNECT_DB);
 $rs = $db->query($txt);
 if($rs)

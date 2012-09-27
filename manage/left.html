@@ -49,6 +49,11 @@ function MM_swapImage() { //v3.0
 }
 //-->
 </script>
+<script type="text/JavaScript">
+function off(){
+	top.window.location="index.php";
+}
+</script>
 </head>
 
 <body onLoad="MM_preloadImages('images/main_26_1.gif','images/main_29_1.gif','images/main_31_1.gif')">
@@ -62,6 +67,7 @@ function MM_swapImage() { //v3.0
             <td><div align="center"><a href="flavorSetting.php" target='I1'><img src="images/main_64.gif" name="Image2" width="40" height="40" border="0" id="Image2" /></a></div></td>
             <td height="45"><div align="center"><a href="printSetting.php" target='I1'><img src="images/main_61.gif" name="Image1" width="40" height="40" border="0" id="Image1"  /></a></div></td>
             <td height="45"><div align="center"><a href="upgrade.php" target='I1'><img src="images/main_26.gif" name="Image1" width="40" height="40" border="0" id="Image1" /></a></div></td>
+            <td height="45"><div align="center"><a href="javascript:void(0)" onClick="off()"><img src="images/main_65.gif" name="Image1" width="40" height="40" border="0" id="Image1" /></a></div></td>
           </tr>
           <tr>
             <td height="25"><div align="center" class="STYLE2"><a href="changedishes.php" target='I1'>菜单管理 </a></div></td>
@@ -72,6 +78,7 @@ function MM_swapImage() { //v3.0
             <td><div align="center" class="STYLE2"><a href="flavorSetting.php" target="I1">口味设置 </a></div></td>
             <td><div align="center" class="STYLE2"><a href="printSetting.php" target="I1">打印机设置 </a></div></td>
             <td><div align="center" class="STYLE2"><a href="upgrade.php" target="I1">升级 </a></div></td>
+            <td><div align="center" class="STYLE2"><a href="javascript:void(0)" onClick="off()">退出</a></div></td>
             <!--<td><div align="center" class="STYLE2"><a href="worker.html" target='I1'>系统维护 </a></div></td>-->
           </tr>	  
 </table>

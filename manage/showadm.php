@@ -6,6 +6,27 @@ session_start();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	$("td.perssion").filter(":contains(0)").text("超级管理者");
+	$("td.perssion").filter(":contains(1)").text("一级管理员");
+	$("td.perssion").filter(":contains(2)").text("二级管理员");
+	$("td.perssion").filter(":contains(3)").text("三级管理员");
+	$("td.perssion").filter(":contains(4)").text("四级管理员");
+	$("td.perssion").filter(":contains(5)").text("五级管理员");
+	$("td.perssion").filter(":contains(6)").text("六级管理员");
+	$("td.perssion").filter(":contains(7)").text("七级管理员");
+	$("td.perssion").filter(":contains(8)").text("普通员工");
+	
+	});
+
+</script>
+<style>
+td{
+	padding-right:10px;
+	}
+</style>
 </head>
 <body>
 <?php
@@ -28,10 +49,18 @@ if($rs)
 	{
 		echo '<td>用户名</td>';
 	}
-	else if($rs->columnName($i)==COLUMN_PASSWORD)
+	else 
 	{
-		echo '<td>密码</td>';
+		    if($rs->columnName($i)==COLUMN_PASSWORD)
+	       {
+		      echo '<td>密码</td>';
+		   }
+		   if($rs->columnName($i)==COLUMN_PERMISSION)
+		   {
+		      echo '<td>权限</td>';
+		   }
 	}
+	
 	
  }
  echo '</tr>';
@@ -39,11 +68,18 @@ if($rs)
  while ($row = $rs->fetchArray())
  { 
      echo '<tr>';
-     for ($i = 1; $i < 3; $i++)
+     for ($i = 1; $i < 4; $i++)
      {
 		 if($row['username']!=$_SESSION[CAINAOKEUSERNAME])
 		 {
-         echo '<td>' . $row[$i] . '</td>' ; 
+			 if($i==3)
+			 {
+				 echo '<td class="perssion">' . $row[$i] . '</td>' ; 
+			 }
+			 else
+			 {
+               echo '<td>' . $row[$i] . '</td>' ; 
+			 }
 		 }
      }
 	 if($row['username']!=$_SESSION[CAINAOKEUSERNAME])

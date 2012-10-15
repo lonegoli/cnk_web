@@ -34,7 +34,7 @@ create table 'temporaryMainDish'( id integer primary key autoincrement,dishID in
 drop table if exists 'callWaiter';
 create table 'callWaiter'(id integer primary key autoincrement,tablenum numeric(3) not null,callStatus numeric(2) not null);
 drop table if exists 'tableInfo';
-create table  tableInfo ( id integer primary key autoincrement,tableName char(32) not null unique,status numeric(2),tableOrder integer not null unique,tableCategory numeric(2) not null,tableArea numeric(4));
+create table  tableInfo ( id integer primary key autoincrement,tableName char(32) not null unique,status numeric(2),tableOrder integer not null unique,tableCategory numeric(2) not null,tableArea numeric(4),tableFloor numeric(4));
 drop table if exists 'serviceList';
 create table 'serviceList'( id integer primary key autoincrement,serviceName char(30) not null unique);
 

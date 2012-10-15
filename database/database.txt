@@ -1,0 +1,43 @@
+dish.db3
+
+drop table if exists 'dishInfo';
+create table 'dishInfo' (id integer primary key autoincrement,name char(32) not null,englishName char(32),shortcut char(12) unique,
+price numeric(6,2),priceTwo numeric(6,2),priceThree numeric(6,2),discount numeric(2,2),unit char(4),description char(100),pictureBUrl char(100),pictureSUrl char(100),
+status numeric(3),permission  numerical(2),sortPrint char(32));
+
+
+drop table if exists 'dishCategory';
+create table 'dishCategory' (id integer primary key autoincrement,dishID integer not null,CategoryID integer not null);
+
+drop table if exists 'category';
+create table 'category' (categoryID integer primary key autoincrement,categoryName char(32) not null unique);
+
+drop table if exists 'version';
+create table version( id integer primary key autoincrement,version numeric(8,1),time char(20),oldversion numeric (8,1));
+
+
+
+
+user.db3
+
+
+drop table if exists 'userInfo';
+create table  userInfo ( id integer primary key autoincrement,username char(10) not null unique,password char(20) not null,permission  numerical(2) not null);
+insert into userInfo values(null,"admin","admin",0);
+
+
+
+
+orderInfo.db3
+drop table if exists 'temporaryMainDish';
+create table 'temporaryMainDish'( id integer primary key autoincrement,dishID integer,dishnum numeric(3) not null,tablenum numeric(3) not null);
+drop table if exists 'callWaiter';
+create table 'callWaiter'(id integer primary key autoincrement,tablenum numeric(3) not null,callStatus numeric(2) not null);
+drop table if exists 'tableInfo';
+create table  tableInfo ( id integer primary key autoincrement,tableName char(32) not null unique,status numeric(2),tableOrder integer not null unique,tableCategory numeric(2) not null,tableArea numeric(4));
+drop table if exists 'serviceList';
+create table 'serviceList'( id integer primary key autoincrement,serviceName char(30) not null unique);
+
+
+
+

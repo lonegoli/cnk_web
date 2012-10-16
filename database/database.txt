@@ -2,8 +2,16 @@ dish.db3
 
 drop table if exists 'dishInfo';
 create table 'dishInfo' (id integer primary key autoincrement,name char(32) not null,englishName char(32),shortcut char(12) unique,
-price numeric(6,2),priceTwo numeric(6,2),priceThree numeric(6,2),discount numeric(2,2),unit char(4),description char(100),pictureBUrl char(100),pictureSUrl char(100),
-status numeric(3),permission  numerical(2),sortPrint char(32));
+price numeric(6,2),priceTwo numeric(6,2),priceThree numeric(6,2),discount numeric(2,2),unitID numeric(2),description char(100),pictureBUrl char(100),pictureSUrl char(100),
+status numeric(3),permission  numeric(2),sortPrintID numeric(2));
+
+
+
+drop table if exists 'unit';
+create table 'unit' (id integer primary key autoincrement,unitName char(4) not null unique);
+
+drop table if exists 'sortPrint';
+create table 'sortPrint' (id integer primary key autoincrement,sortPrintName char(32));
 
 
 drop table if exists 'dishCategory';

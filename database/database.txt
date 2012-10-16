@@ -15,7 +15,7 @@ create table 'sortPrint' (id integer primary key autoincrement,sortPrintName cha
 
 
 drop table if exists 'dishCategory';
-create table 'dishCategory' (id integer primary key autoincrement,dishID integer not null,CategoryID integer not null);
+create table 'dishCategory' (id integer primary key autoincrement,dishID integer not null,categoryID integer not null);
 
 drop table if exists 'category';
 create table 'category' (categoryID integer primary key autoincrement,categoryName char(32) not null unique);
@@ -23,6 +23,7 @@ create table 'category' (categoryID integer primary key autoincrement,categoryNa
 drop table if exists 'version';
 create table version( id integer primary key autoincrement,version numeric(8,1),time char(20),oldversion numeric (8,1));
 
+create view dish as select * from dishInfo left join dishCategory on dishInfo.id=dishCategory.dishID;
 
 
 
@@ -30,7 +31,7 @@ user.db3
 
 
 drop table if exists 'userInfo';
-create table  userInfo ( id integer primary key autoincrement,username char(10) not null unique,password char(20) not null,permission  numerical(2) not null);
+create table  userInfo ( id integer primary key autoincrement,username char(10) not null unique,password char(20) not null,permission  numeric(2) not null);
 insert into userInfo values(null,"admin","admin",0);
 
 
